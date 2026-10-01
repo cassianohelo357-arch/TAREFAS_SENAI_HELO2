@@ -1,0 +1,182 @@
+/* Variáveis para Tema Fofinho e Tons Pastéis */
+:root {
+    --gradiente-fundo: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    --fundo-cartao: #fff5f7;
+    --cor-texto: #6b5b6e;
+    --cor-primaria: #b5838d;
+    --cor-primaria-destaque: #ffb4a2;
+    --cor-borda: #fcd5ce;
+    --cor-perigo: #e5989b;
+    --cor-concluido: #b8b8b8;
+    --item-fundo: #ffffff;
+}
+
+/* Modo Escuro Suave */
+body.modo-escuro {
+    --gradiente-fundo: linear-gradient(135deg, #2d232e 0%, #020102 100%);
+    --fundo-cartao: #261c24;
+    --cor-texto: #f3c6f8;
+    --cor-primaria: #d4a5a5;
+    --cor-primaria-destaque: #e8c5c8;
+    --cor-borda: #4a3547;
+    --cor-perigo: #e07a5f;
+    --cor-concluido: #7f6d7c;
+    --item-fundo: #0a0509;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--gradiente-fundo);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cartao-aplicacao {
+    background: var(--fundo-cartao);
+    color: var(--cor-texto);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(65, 47, 49, 0.25);
+    border: 2px solid var(--cor-borda);
+}
+.decoracao-topo {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.cabecalho-aplicacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.cabecalho-aplicacao h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.botao-icone {
+    background: var(--cor-borda);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixa-entrada {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 15px;
+    outline: none;
+    font-size: 0.95rem;
+    background: var(--item-fundo);
+    color: var(--cor-texto);
+}
+
+input[type="text"]:focus {
+    border-color: var(--cor-primaria);
+}
+
+.botao-principal {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.botao-principal:hover {
+    background: var(--cor-primaria-destaque);
+    transform: translateY(-2px);
+}
+
+.lista-tarefas {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: var(--item-fundo);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: 1px solid var(--cor-borda);
+    animation: aparecer 0.3s ease;
+}
+
+/* Correção para o risco na tarefa concluída (aplicado no span de texto) */
+.item-tarefa.concluido span {
+    text-decoration: line-through;
+    color: var(--cor-concluido);
+    opacity: 0.7;
+}
+
+.acoes-tarefa {
+    display: flex;
+    gap: 8px;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--cor-texto);
+    padding: 5px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.botao-acao:hover {
+    background: var(--cor-borda);
+}
+
+.botao-acao.excluir:hover {
+    color: var(--cor-perigo);
+}
+
+.rodape-aplicacao {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--cor-concluido);
+    text-align: center;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
