@@ -12,22 +12,22 @@
         <div class="decoracao-topo">
         </div>
         <header class="cabecalho-aplicacao">
-            <h1>Minhas Tarefas </h1>
+            <h1>Minhas Tarefas</h1>
             <button id="botao-alternar-tema" class="botao-icone" title="Alternar Tema">
                 <i class="fa-solid fa-moon"></i>
             </button>
         </header>
 
         <div class="caixa-entrada">
-            <input type="text" id="campo-tarefa" placeholder="O que vamos fazer hoje? " maxlength="40">
+            <input type="text" id="campo-tarefa" placeholder="O que vamos fazer hoje?" maxlength="40">
             <button id="botao-adicionar" class="botao-principal">
                 <i class="fa-solid fa-plus"></i> Adicionar
             </button>
         </div>
 
         <div style="display: flex; gap: 8px; margin-bottom: 15px;">
-            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px; background: var(--cor-borda); color: var(--cor-texto);" onclick="filtrarStatus('todas')"> Todas</button>
-            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px;" onclick="filtrarStatus('pendentes')"> Pendentes</button>
+            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px; background: var(--cor-borda); color: var(--cor-texto);" onclick="filtrarStatus('todas')">Todas</button>
+            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px;" onclick="filtrarStatus('pendentes')">Pendentes</button>
         </div>
 
         <ul id="lista-tarefas" class="lista-tarefas">
@@ -40,11 +40,14 @@
                 <i class="fa-solid fa-broom"></i> Limpar Concluídas
             </button>
         </footer>
-        <div style="text-align: center;">
-            <div style="text-align: center;">
-                <img src="picture.jpeg" alt="helo" style="width: 200px; height: 200px; object-fit: cover; border: 5px solid rgb(219, 179, 209); border-radius: 50%;">
-            </div>
-        </div>
+
+        <!-- Seção da Foto e Assinatura Centralizadas -->
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="foto.jpg" alt="Helo" style="width: 120px; height: 120px; object-fit: cover; border: 4px solid rgb(219, 179, 209); border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top: 10px; font-size: 0.85rem; color: var(--cor-texto); font-weight: 500;">
+                Desenvolvido por Helo
+            </p>
+        </div>  
     </div>
 
     <script src="script.js"></script>
