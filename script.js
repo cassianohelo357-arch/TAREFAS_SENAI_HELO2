@@ -1,10 +1,15 @@
+
+alert("Requisitos Funcionais adicionados:\n1. RF de Filtragem  (Todas e Pendentes).\n2. RF de Limpeza de Tarefas concluídas.");
+
 const campoTarefa = document.getElementById("campo-tarefa");
 const botaoAdicionar = document.getElementById("botao-adicionar");
 const listaTarefas = document.getElementById("lista-tarefas");
 const contadorTarefas = document.getElementById("contador-tarefas");
 const botaoTema = document.getElementById("botao-alternar-tema");
+const botaoLimparConcluidas = document.getElementById("botao-limpar-concluidas");
 
 let tarefas = [];
+let filtroAtual = "todas"; 
 
 function adicionarTarefa() {
     const texto = campoTarefa.value.trim();
@@ -29,7 +34,13 @@ function adicionarTarefa() {
 function mostrarTarefas() {
     listaTarefas.innerHTML = "";
 
-    tarefas.forEach(function (tarefa) {
+
+    const tarefasFiltradas = tarefas.filter(function (tarefa) {
+        if (filtroAtual === "pendentes") return !tarefa.concluida;
+        return true; 
+    });
+
+    tarefasFiltradas.forEach(function (tarefa) {
         const item = document.createElement("li");
         item.classList.add("item-tarefa");
 
@@ -79,15 +90,21 @@ function mostrarTarefas() {
     atualizarContador();
 }
 
+
+function filtrarStatus(status) {
+    filtroAtual = status;
+    mostrarTarefas();
+}
+
 function atualizarContador() {
     const quantidade = tarefas.length;
 
     if (quantidade === 0) {
-        contadorTarefas.textContent = "0 tarefas na lista ";
+        contadorTarefas.textContent = " Nenhuma tarefa por enquanto!";
     } else if (quantidade === 1) {
-        contadorTarefas.textContent = "1 tarefa na lista ";
+        contadorTarefas.textContent = "1 tarefa na lista!";
     } else {
-        contadorTarefas.textContent = `${quantidade} tarefas na lista `;
+        contadorTarefas.textContent = `${quantidade} tarefas na lista. Foco que você dá conta! `;
     }
 }
 
@@ -101,6 +118,13 @@ campoTarefa.addEventListener("keydown", function (event) {
 
 botaoTema.addEventListener("click", function () {
     document.body.classList.toggle("modo-escuro");
+});
+
+botaoLimparConcluidas.addEventListener("click", function () {
+    tarefas = tarefas.filter(function (tarefa) {
+        return !tarefa.concluida; // Mantém apenas as que NÃO estão concluídas
+    });
+    mostrarTarefas();
 });
 
 mostrarTarefas();

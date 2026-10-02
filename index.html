@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Painel - SENAI</title>
-    <link rel="stylesheet" href="style.css">>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -24,17 +24,27 @@
                 <i class="fa-solid fa-plus"></i> Adicionar
             </button>
         </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px; background: var(--cor-borda); color: var(--cor-texto);" onclick="filtrarStatus('todas')"> Todas</button>
+            <button type="button" class="botao-principal" style="flex: 1; font-size: 0.8rem; padding: 8px;" onclick="filtrarStatus('pendentes')"> Pendentes</button>
+        </div>
+
         <ul id="lista-tarefas" class="lista-tarefas">
         </ul>
-       
+
         <footer class="rodape-aplicacao">
             <span id="contador-tarefas">0 tarefas na lista</span>
+
+            <button id="botao-limpar-concluidas" class="botao-principal" style="width: 100%; margin-top: 10px; background: var(--cor-perigo); font-size: 0.85rem; padding: 8px;">
+                <i class="fa-solid fa-broom"></i> Limpar Concluídas
+            </button>
         </footer>
         <div style="text-align: center;">
-   <div style="text-align: center;">
-    <img src="picture.jpeg" alt="helo" style="width: 200px; height: 200px; object-fit: cover; border: 5px solid rgb(219, 179, 209); border-radius: 50%;">
-</div>
-</div>
+            <div style="text-align: center;">
+                <img src="picture.jpeg" alt="helo" style="width: 200px; height: 200px; object-fit: cover; border: 5px solid rgb(219, 179, 209); border-radius: 50%;">
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
